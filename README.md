@@ -23,8 +23,8 @@ pod 'Stomt-iOS-SDK', '~> 0.0.x'
 
 If you are including the SDK with CocoaPods, be sure to use the desired version. 
 
-- iOS8 version --> `"pod 'Stomt-iOS-SDK', '< 2.0.0'"`
-- iOS9 version --> `"pod 'Stomt-iOS-SDK', '~> 2.0.0'"`
+- iOS8 version --> `pod 'Stomt-iOS-SDK', '< 2.0.0'`
+- iOS9 version --> `pod 'Stomt-iOS-SDK', '~> 2.0.0'`
 
 This will ensure you to have the latest version of the desired OS.
 
@@ -46,18 +46,18 @@ Import the SDK:
 
 **(If installed via CocoaPods)**
 ```Objective-C
-#import "Stomt.h"
+#import <StomtiOS/Stomt.h>
 ```
 **(If installed manually)**
 ```Objective-C
-#import <StomtiOS/Stomt.h>
+#import "Stomt.h"
 ```
 
 Initialize the framework:
 ```Objective-C
 // Setup Stomt with your AppID
 // -> get yours at: https://www.stomt.com/dev/my-apps
-//
+
 [Stomt setAppID:@"abcdefghijklmnopqrstuvwxy"];
 ```
 
@@ -71,18 +71,18 @@ The most common action while using the SDK is to send a Stomt.
 // Open a creation modal for your applications page
 // -> the targetID is your pages identifier you can copy it from the pages url
 //    https://www.stomt.com/stomt-ios-sdk -> stomt-ios-sdk
-//
+
 [Stomt presentStomtCreationPanelWithTargetID:@"stomt-ios-sdk"
-							defaultText:@" "
-							likeOrWish:kSTObjectWish
-							 completionBlock:^(NSError *error, STObject *stomt) {
-							 	//Completion block
-							 }];
+				 defaultText:@" "
+				  likeOrWish:kSTObjectWish
+        		     completionBlock:^(NSError *error, STObject *stomt) {
+				 //Completion block
+			     }];
 ```
 ####Authenticate
 Authentication to Stomt can be accomplished in two ways: 
 
-Via normal OAuth flow, using the handy method `+[Stomt promptAuthenticationIfNecessaryWithCompletionBlock:]
+Via normal OAuth flow, using the handy method `[Stomt promptAuthenticationIfNecessaryWithCompletionBlock:]`
 
 Or via **Facebook connect**.
 
